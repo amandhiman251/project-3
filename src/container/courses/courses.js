@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Course from '../course/course';
+//import Course from '../course/course';
+import './courses.css';
 
 class Courses extends Component {
     state ={
@@ -17,12 +18,7 @@ class Courses extends Component {
     render() {
         let course = this.state.courses.map(course => {
             return (
-                <Course  
-                key={course.id}
-                id={course.id}
-                title ={course.title} 
-                body={course.body}
-            /> )
+                <h1 className="courses" onClick={this.courseHandler}>{course.title}</h1>)
         });
         return(
             <div>

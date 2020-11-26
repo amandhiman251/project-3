@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import Users from './container/users/users';
-import Courses from './container/courses/cousres';
+import Courses from './container/courses/courses';
 
 class App extends Component {
   render(){
