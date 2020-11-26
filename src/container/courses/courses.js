@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Course from '../course/course';
 import './courses.css';
 import {Route, Link} from 'react-router-dom';
 
 
 class Courses extends Component {
     state ={
-        courses:[],
-        course:true
+        courses:[]
     }
     componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/posts').then (
@@ -20,29 +18,15 @@ class Courses extends Component {
         );
 
     }
-    
-
-    // courseHandler=() =>{
-    //     this.setState({course:false});
-    // }
     render() {
-            //this.state.course?
-            //console.log(this.state.courses);
            let course = this.state.courses.map(course => {
             return (
-                <Link key={course.id} to={this.props.match.url + '/' + course.id}>
+                <Link key={course.id} to={{
+                    pathname: this.props.match.url + '/' + course.id,
+                    title: course.title
+                    }}>
                     <h1>{course.title}</h1>
                     </Link>)})
-        {/* <h1 className="courses" key={course.id}>{course.title}</h1></Link>)}) */}
-        // }): course = this.state.courses.map(course => {
-        //     return (
-        //         <Course 
-        //         key={course.id}
-        //         title={course.title}
-        //         body ={course.body}
-        //         id={course.id} />
-        //     )
-        // });
         return(
             <div>
                 {course}

@@ -9,28 +9,18 @@ class Course extends Component {
     componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.courseid)
         .then(response => {
-            let data = response.data;
-            this.setState({course:data});
+            this.setState({course:response.data});
         })
 
             //console.log(this.state.course);
     }
     render(){
-        let course = this.state.course;
-        const bc = course.title;
-        const sc = course.body;
+        //console.log(this.props.location.title);
     return <div>
-            <h1>{bc}</h1>
-            <h4>{sc}</h4>
+            <h1>{this.props.location.title}</h1>
+            <h4>{this.state.course.body}</h4>
             </div>
-    }
-    // return (
-    //     <div>
-    //         <h1>{props.title}</h1>
-    //         <h2>{props.id}</h2>
-    //         <p>{props.body}</p>
-    //     </div>
-    // );      
+    }     
 
 }
 
