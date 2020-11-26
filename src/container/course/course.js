@@ -1,13 +1,28 @@
-import Axios from 'axios';
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 class Course extends Component {
+    state={
+        course:{}
+    }
     componentDidMount() {
-        //axios.get('https://jsonplaceholder.typicode.com/posts'+ .id )
+        axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.courseid)
+        .then(response => {
+            let data = response.data;
+            this.setState({course:data});
+        })
+
+            //console.log(this.state.course);
     }
     render(){
-        return <h1>course1</h1>
+        let course = this.state.course;
+        const bc = course.title;
+        const sc = course.body;
+    return <div>
+            <h1>{bc}</h1>
+            <h4>{sc}</h4>
+            </div>
     }
     // return (
     //     <div>

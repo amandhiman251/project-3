@@ -5,7 +5,6 @@ import './courses.css';
 import {Route, Link} from 'react-router-dom';
 
 
-let course;
 class Courses extends Component {
     state ={
         courses:[],
@@ -16,7 +15,7 @@ class Courses extends Component {
             response => {
             let data = response.data.slice(0, 4);
             this.setState({courses:data});
-            console.log(response);
+            //console.log(response);
             }
         );
 
@@ -28,10 +27,12 @@ class Courses extends Component {
     // }
     render() {
             //this.state.course?
-            course = this.state.courses.map(course => {
+            //console.log(this.state.courses);
+           let course = this.state.courses.map(course => {
             return (
-                <Link key={course.id} to={this.props.match.url + '/course'}>
-                    <h1>{course.title}</h1></Link>)})
+                <Link key={course.id} to={this.props.match.url + '/' + course.id}>
+                    <h1>{course.title}</h1>
+                    </Link>)})
         {/* <h1 className="courses" key={course.id}>{course.title}</h1></Link>)}) */}
         // }): course = this.state.courses.map(course => {
         //     return (
