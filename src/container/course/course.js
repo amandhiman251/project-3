@@ -15,7 +15,7 @@ class Course extends Component {
             //console.log(this.state.course);
     }
     render(){
-        //console.log(this.props.location.title);
+        console.log(this.props);
     return <div>
             <h1>{this.props.location.title}</h1>
             <h4>{this.state.course.body}</h4>

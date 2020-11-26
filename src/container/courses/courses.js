@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './courses.css';
 import {Route, Link} from 'react-router-dom';
+import Course from '../course/course';
 
 
 class Courses extends Component {
@@ -30,6 +31,7 @@ class Courses extends Component {
         return(
             <div>
                 {course}
+                <Route path={this.props.match.url + '/:courseid'} component={Course} />
             </div>
         );
     }
