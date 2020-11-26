@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom';
 import Users from './container/users/users';
 import Courses from './container/courses/courses';
 import Course from './container/course/course';
@@ -17,9 +17,11 @@ class App extends Component {
           </ul>
 
         </nav>
-        <Route path='/users' component={Users} />
-        <Route path='/courses' component={Courses} />
-        <Route path='/courses/course' component={Course} />
+        <Switch>
+          <Route path='/users' component={Users} />
+          <Route path='/courses/course' component={Course} />
+          <Route path='/courses' component={Courses} />
+        </Switch>
       </div>
       </BrowserRouter>
     );
