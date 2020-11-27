@@ -17,7 +17,7 @@ class Course extends Component {
     render(){
         console.log(this.props);
     return <div>
-            <h1>{this.props.location.title}</h1>
+            <h1>{this.props.match.params.coursetitle}</h1>
             <h4>{this.state.course.body}</h4>
             </div>
     }     
